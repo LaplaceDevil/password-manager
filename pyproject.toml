@@ -1,0 +1,37 @@
+[project]
+name = "passman"
+version = "0.1.0"
+description = "Minimal local password manager (CLI) for personal use"
+authors = [
+    { name = "LaplaceDevil", email = "LaplaceDevil@proton.me" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["cli", "password", "vault", "cryptography"]
+
+dependencies = [
+    "argon2-cffi>=23.1.0",
+    "cryptography>=41.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=24.0.0",
+    "flake8>=6.0.0"
+]
+
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "--cov=passman --cov-report=term-missing"
+testpaths = ["tests"]
